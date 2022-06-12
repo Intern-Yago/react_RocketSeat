@@ -42,9 +42,9 @@ export function Home() {
         <h1>Lista de presença</h1>  
         <div>
           <strong>
-            {user.name}
+            Anonimo
           </strong>
-          <img src={user.avatar} alt="Foto de perfil" />
+          <img src='https://brasilescola.uol.com.br/biologia/flor.htm' alt="Foto de perfil" />
         </div>
       </header>
 
