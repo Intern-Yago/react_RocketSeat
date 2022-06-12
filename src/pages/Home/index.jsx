@@ -24,8 +24,16 @@ export function Home() {
 
   return (
     <div className="container">
-      <h1>Lista de presença</h1>  
-      <h2>Nome: {pessoaName}</h2>
+      <header>
+        <h1>Lista de presença</h1>  
+        <div>
+          <strong>
+            Yago
+          </strong>
+          <img src="https://github.com/Intern-Yago.png" alt="" />
+        </div>
+      </header>
+
       <input 
         type="text" 
         placeholder="Digite seu nome..." 
