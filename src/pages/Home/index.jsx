@@ -35,8 +35,14 @@ export function Home() {
         Adicionar
       </button>
       {
-        grupo.map(pessoa => <Card name={pessoa.name} date={pessoa.date}/>)
-      
+        grupo.map(pessoa => (
+            <Card 
+              key={pessoa.date}
+              name={pessoa.name} 
+              date={pessoa.date}
+            />
+          )
+        )
       }
     </div>
   )
