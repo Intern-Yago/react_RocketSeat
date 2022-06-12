@@ -4,20 +4,40 @@ import './styles.css'
 import { Card } from '../../components/Card'
 
 export function Home() {
-  const [Name,setName]=useState()
+  const [pessoaName,setPessoaName]=useState()
+  const [grupo, setGrupo] = useState([])
+
+  function handleAddPessoa(){
+    const newPessoa={
+      name: pessoaName,
+      date: new Date().toLocaleString("pt-br", {
+        day: '2-digit',
+        month: '2-digit',
+        year: '2-digit',
+        hour: '2-digit',
+        minute:"2-digit",
+        second:'2-digit'
+      })
+    }
+    setGrupo(prevState => [...prevState, newPessoa])
+  }
 
   return (
     <div className="container">
       <h1>Lista de presença</h1>  
-      <h2>Nome: {Name}</h2>
+      <h2>Nome: {pessoaName}</h2>
       <input 
         type="text" 
         placeholder="Digite seu nome..." 
-        onChange={e =>setName(e.target.value)}
+        onChange={e =>setPessoaName(e.target.value)}
       />
-      <button type="button">Adicionar</button>
-      <Card name="Yago Victor" time="10:55:25"/>
-      <Card name="João" time="11:00:10"/>
+      <button type="button" onClick={handleAddPessoa}>
+        Adicionar
+      </button>
+      {
+        grupo.map(pessoa => <Card name={pessoa.name} date={pessoa.date}/>)
+      
+      }
     </div>
   )
 }
