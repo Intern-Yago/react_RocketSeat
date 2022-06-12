@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './styles.css'
 
 import { Card } from '../../components/Card'
@@ -21,6 +21,10 @@ export function Home() {
     }
     setGrupo(prevState => [...prevState, newPessoa])
   }
+
+  useEffect(()=>{
+    console.log("heelo");
+  },[grupo])
 
   return (
     <div className="container">
