@@ -6,6 +6,7 @@ import { Card } from '../../components/Card'
 export function Home() {
   const [pessoaName,setPessoaName]=useState()
   const [grupo, setGrupo] = useState([])
+  const [user, setUser] = useState({user:'', avatar:''})
 
   function handleAddPessoa(){
     const newPessoa={
@@ -23,8 +24,15 @@ export function Home() {
   }
 
   useEffect(()=>{
-    console.log("heelo");
-  },[grupo])
+    fetch("https://api.github.com/users/Intern-Yago")
+    .then(response => response.json())
+    .then(data =>{
+      setUser({
+        name: data.name,
+        avatar: data.avatar_url,
+      })
+    })
+  },[])
 
   return (
     <div className="container">
@@ -32,9 +40,9 @@ export function Home() {
         <h1>Lista de presença</h1>  
         <div>
           <strong>
-            Yago
+            {user.name}
           </strong>
-          <img src="https://github.com/Intern-Yago.png" alt="" />
+          <img src={user.avatar} alt="Foto de perfil" />
         </div>
       </header>
 
