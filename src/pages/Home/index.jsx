@@ -7,6 +7,7 @@ export function Home() {
   const [pessoaName,setPessoaName]=useState()
   const [grupo, setGrupo] = useState([])
   const [user, setUser] = useState({user:'', avatar:''})
+  const [titulo, setTitulo] = useState('Funcionalidade:')
 
   function handleAddPessoa(){
     const newPessoa={
@@ -39,19 +40,27 @@ export function Home() {
   return (
     <div className="container">
       <header>
-        <h1>Lista de presença</h1>  
+        <h1>{titulo}</h1>  
         <div>
-          <strong>
+          {/* <strong>
             Anonimo
           </strong>
-          <img src='https://brasilescola.uol.com.br/biologia/flor.htm' alt="Foto de perfil" />
+          <img src='https://brasilescola.uol.com.br/biologia/flor.htm' alt="Foto de perfil" /> */}
         </div>
       </header>
 
       <input 
         type="text" 
+        placeholder="Digite qual será a funcionalidade do site" 
+        onChange={e =>setTitulo(e.target.value)}
+        className="muda-texto"
+      />
+
+      <input 
+        type="text" 
         placeholder="Digite seu nome..." 
         onChange={e =>setPessoaName(e.target.value)}
+        className="pessoa"
       />
       <button type="button" onClick={handleAddPessoa}>
         Adicionar
