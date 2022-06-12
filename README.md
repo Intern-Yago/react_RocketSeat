@@ -2,4 +2,4 @@
 
 Projeto iniciado: npm vite@latest --template react
 
-[] - add login gmail
+[ ] - add login gmail
